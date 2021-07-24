@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Open the application for the first time</description>
+   <name>TC_MTD_1STCOMP_01</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>7936a391-8492-4d02-9622-0590adad33ca</testCaseGuid>
+</TestCaseEntity>
