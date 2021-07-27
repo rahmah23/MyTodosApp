@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataFileEntity>
+   <description></description>
+   <name>NewTodoList</name>
+   <tag></tag>
+   <containsHeaders>true</containsHeaders>
+   <csvSeperator></csvSeperator>
+   <dataFileGUID>618006a9-8260-421d-8fae-a31b1501d4e6</dataFileGUID>
+   <dataSourceUrl></dataSourceUrl>
+   <driver>InternalData</driver>
+   <data>Listen+to+music</data>
+   <data>Read+a+newspaper+or+magazine</data>
+   <data>Wipe+Down+Kitchen+and+Bathroom+Counters</data>
+   <data>Enjoy+a+cup+of+tea</data>
+   <internalDataColumns>
+      <columnIndex>0</columnIndex>
+      <name>Activity</name>
+      <size>4</size>
+   </internalDataColumns>
+   <isInternalPath>false</isInternalPath>
+   <query></query>
+   <secureUserAccount>false</secureUserAccount>
+   <sheetName></sheetName>
+   <usingGlobalDBSetting>false</usingGlobalDBSetting>
+</DataFileEntity>
