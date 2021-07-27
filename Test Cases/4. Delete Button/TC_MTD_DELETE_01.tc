@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Test Scenario: [TS_MTD_004] Verify Delete Button.
+Test Case: [TC_MTD_DELETE_01] Delete one of list in to-do list.</description>
+   <name>TC_MTD_DELETE_01</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>8ca0ff32-8409-45ae-a0cb-147c19260a14</testCaseGuid>
+</TestCaseEntity>

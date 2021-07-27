@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Test Scenario: [TS_MTD_005] Verify Mark as Complete to-do
+Test Case: [TC_MTD_COMPLETE_01] Mark to-do list as Complete 
+                   [TC_MTD_COMPLETE_02] Mark to-do list as Incomplete</description>
+   <name>TS_MTD_005</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>74c1cb9a-83a2-4aeb-ab63-50e813ddc61a</testCaseGuid>
+</TestCaseEntity>

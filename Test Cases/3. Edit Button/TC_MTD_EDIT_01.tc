@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Test Scenario: [TS_MTD_003] Verify Edit Button.
+Test Case: [TC_MTD_EDIT_01] Edit characters or sentence in to-do list.</description>
+   <name>TC_MTD_EDIT_01</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>08a2ad89-db44-4992-9244-9b925a9e93e9</testCaseGuid>
+</TestCaseEntity>

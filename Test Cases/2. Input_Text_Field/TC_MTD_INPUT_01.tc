@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Test Scenario: [TS_MTD_002] Verify Input Text Field [Create a new to-do…].
+Test Case: [TC_MTD_INPUT_01] Create a new to-do with some characters</description>
+   <name>TC_MTD_INPUT_01</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>464910d8-1aaf-4288-9bd8-d3e200ac4f1e</testCaseGuid>
+</TestCaseEntity>
