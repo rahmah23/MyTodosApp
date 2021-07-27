@@ -30,47 +30,47 @@ for (def rowNum = 1; rowNum <= findTestData('NewTodoList').getRowNumbers(); rowN
 	WebUI.sendKeys(findTestObject('My-todos_OR/Page_vue-todos/input_My to-dos_form-control'), Keys.chord(Keys.ENTER))
 }
 
-//Get random text in to-do list
+//Get random list in to-do list
 Random rand = new Random()
 
 int rowCount = findTestData('NewTodoList').getRowNumbers()
 
 rowNum = (rand.nextInt(rowCount - 1) + 1)
 
-String editedText = findTestData('NewTodoList').getValue(1, rowNum)
+String deletedList = findTestData('NewTodoList').getValue(1, rowNum)
 
-//Click Edit button
-String xpathEdit = '(.//*[normalize-space(text()) and normalize-space(.)="' + editedText + '"])[1]/following::button[1]'
+//Click Delete button
+String xpathDelete = ('(.//*[normalize-space(text()) and normalize-space(.)="' + deletedList) + '"])[1]/following::button[2]'
 
-TestObject to = new TestObject('editButton')
+TestObject deleteButton = new TestObject('deleteButton')
 
-to.addProperty('xpath', ConditionType.EQUALS, xpathEdit)
+deleteButton.addProperty('xpath', ConditionType.EQUALS, xpathDelete)
 
-WebUI.click(to)
+WebUI.delay(1)
 
-//Edit text
-String newEditedText = 'Vacuum rugs and carpet'
+WebUI.click(deleteButton)
 
-String xpathText = '(//input[@type="text"])[2]'
+WebUI.clickOffset(findTestObject('My-todos_OR/Page_vue-todos/blank_space'), 100, 100)
 
-TestObject toEdit = new TestObject('editTextField')
+//Verify deleted list
+String xpathList = ('(.//*[normalize-space(text()) and normalize-space(.)="' + deletedList) + '"])[1]/following::li[1]'
 
-toEdit.addProperty('xpath', ConditionType.EQUALS, xpathText)
+TestObject removedList = new TestObject('removedList')
 
-WebUI.sendKeys(toEdit, Keys.chord(Keys.CONTROL, 'a'))
+removedList.addProperty('xpath', ConditionType.EQUALS, xpathList)
 
-WebUI.sendKeys(toEdit, Keys.chord(Keys.BACK_SPACE))
+String xpathEdit = ('(.//*[normalize-space(text()) and normalize-space(.)="' + deletedList) + '"])[1]/following::button[1]'
 
-WebUI.setText(toEdit, newEditedText)
+TestObject editButton = new TestObject('editButton')
 
-WebUI.sendKeys(toEdit, Keys.chord(Keys.ENTER))
+editButton.addProperty('xpath', ConditionType.EQUALS, xpathEdit)
 
-//Verify Edited text
-WebUI.verifyTextNotPresent(editedText, false)
+WebUI.verifyElementNotPresent(removedList, 0)
 
-WebUI.verifyElementText(findTestObject('My-todos_OR/Page_vue-todos/li_activity', [('activity') : newEditedText]), newEditedText)
+WebUI.verifyElementNotPresent(deleteButton, 0)
+
+WebUI.verifyElementNotPresent(editButton, 0)
 
 WebUI.delay(3)
 
 WebUI.closeBrowser()
-

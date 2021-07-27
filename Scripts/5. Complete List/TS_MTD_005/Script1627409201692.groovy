@@ -22,53 +22,51 @@ WebUI.openBrowser(GlobalVariable.URL)
 
 //Add to-do list
 for (def rowNum = 1; rowNum <= findTestData('NewTodoList').getRowNumbers(); rowNum++) {
-	//Create new to-do
-	String newText = findTestData('NewTodoList').getValue(1, rowNum)
+    //Create new to-do
+    String newText = findTestData('NewTodoList').getValue(1, rowNum)
 
-	WebUI.setText(findTestObject('My-todos_OR/Page_vue-todos/input_My to-dos_form-control'), newText)
+    WebUI.setText(findTestObject('My-todos_OR/Page_vue-todos/input_My to-dos_form-control'), newText)
 
-	WebUI.sendKeys(findTestObject('My-todos_OR/Page_vue-todos/input_My to-dos_form-control'), Keys.chord(Keys.ENTER))
+    WebUI.sendKeys(findTestObject('My-todos_OR/Page_vue-todos/input_My to-dos_form-control'), Keys.chord(Keys.ENTER))
 }
 
-//Get random text in to-do list
+//Get random list in to-do list
 Random rand = new Random()
 
 int rowCount = findTestData('NewTodoList').getRowNumbers()
 
 rowNum = (rand.nextInt(rowCount - 1) + 1)
 
-String editedText = findTestData('NewTodoList').getValue(1, rowNum)
+String selectedList = findTestData('NewTodoList').getValue(1, rowNum)
 
-//Click Edit button
-String xpathEdit = '(.//*[normalize-space(text()) and normalize-space(.)="' + editedText + '"])[1]/following::button[1]'
+//Get to-do list xpath
+String xpath = ('(.//*[normalize-space(text()) and normalize-space(.)="' + selectedList) + '"])[1]/following::button[3]'
 
-TestObject to = new TestObject('editButton')
+TestObject completeList = new TestObject('completeList')
 
-to.addProperty('xpath', ConditionType.EQUALS, xpathEdit)
+completeList.addProperty('xpath', ConditionType.EQUALS, xpath)
 
-WebUI.click(to)
+//Mark list to-do as complete
+WebUI.click(completeList)
 
-//Edit text
-String newEditedText = 'Vacuum rugs and carpet'
+//Get CSS 'text-decoration' propery of complete list
+String textDecoration = WebUI.getCSSValue(completeList, 'text-decoration')
 
-String xpathText = '(//input[@type="text"])[2]'
+//Verify CSS 'text-decoration' propery value contains line-through
+WebUI.verifyMatch(textDecoration, '.*(line-through).*', true)
 
-TestObject toEdit = new TestObject('editTextField')
+WebUI.delay(3)
 
-toEdit.addProperty('xpath', ConditionType.EQUALS, xpathText)
+//Mark complete list to-do as incomplete
+WebUI.click(completeList)
 
-WebUI.sendKeys(toEdit, Keys.chord(Keys.CONTROL, 'a'))
+WebUI.delay(1)
 
-WebUI.sendKeys(toEdit, Keys.chord(Keys.BACK_SPACE))
+//Get CSS 'text-decoration' propery of incomplete list
+String textDecoration2 = WebUI.getCSSValue(completeList, 'text-decoration')
 
-WebUI.setText(toEdit, newEditedText)
-
-WebUI.sendKeys(toEdit, Keys.chord(Keys.ENTER))
-
-//Verify Edited text
-WebUI.verifyTextNotPresent(editedText, false)
-
-WebUI.verifyElementText(findTestObject('My-todos_OR/Page_vue-todos/li_activity', [('activity') : newEditedText]), newEditedText)
+//Verify CSS 'text-decoration' propery value doesn't contain line-through
+WebUI.verifyNotMatch(textDecoration2, '.*(line-through).*', true)
 
 WebUI.delay(3)
 
