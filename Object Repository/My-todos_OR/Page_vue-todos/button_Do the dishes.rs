@@ -3,7 +3,7 @@
    <description></description>
    <name>button_Do the dishes</name>
    <tag></tag>
-   <elementGuidId>65d25e11-a21e-4530-b090-439ff1e69b2f</elementGuidId>
+   <elementGuidId>80a3e9e3-25d2-48ea-8a42-35c0f7dc62b4</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
@@ -14,7 +14,7 @@
          <value>button.btn.border-0.flex-grow-1.text-left.shadow-none</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <useRalativeImagePath>true</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>
