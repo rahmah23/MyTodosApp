@@ -4,4 +4,9 @@
    <name>default</name>
    <tag></tag>
    <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://my-vue-todos.netlify.app/'</initValue>
+      <name>URL</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
